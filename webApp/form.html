@@ -21,7 +21,7 @@
 </div>
 <div class="row py-5">
     <div class="col-md-5 mx-auto bg-dark p-5">
-        <h2 class="text-light">Создание тикета <span class="select-form">E2E</span> / <span class="select-form non-select">API</span></h2>
+        <h2 class="text-light">Создание тикета</h2>
         <form action="/" class="step-form e2e-form" id="contact-info">
             <div class="steps"></div>
             <div class="tab" data-name="Общее">
@@ -123,105 +123,6 @@
                 <label class="hint"><kbd>CTRL</kbd> + <kbd>N</kbd>  - код; <kbd>CTRL</kbd> + <kbd>B</kbd> - жирный текст; <kbd>CTRL</kbd> + <kbd>I</kbd> - курсив</label>
             </div>
 
-            <div class="status"></div>
-            <div class="controller">
-                <button name="prev" type="button" class="btn">Назад</button>
-                <button name="refresh" type="button" class="btn">Сбросить</button>
-                <button name="next" type="button" class="btn">Продолжить</button>
-            </div>
-        </form>
-        <form action="/" class="step-form api-form hidden" id="api-info">
-            <div class="steps"></div>
-            <div class="tab" data-name="Общее">
-                <!-- Проект -->
-                <div class="form-floating">
-                    <select required class="form-select" id="api-project" name="app">
-                        <option value="CRM">CRM</option>
-                        <option value="МУК">МУК</option>
-                        <option value="MED">MED</option>
-                        <option value="VM">VM</option>
-                        <option value="LHU">LHU</option>
-                    </select>
-                    <label for="api-project">Проект</label>
-                </div>
-                <!-- Стенд -->
-                <div class="form-floating">
-                    <select required class="form-select" id="api-stand" name="stand">
-                        <option value="Тестовый">Тестовый</option>
-                        <option value="Облако">Облако</option>
-                        <option value="Прод">Прод</option>
-                    </select>
-                    <label for="api-stand">Стенд</label>
-                </div>
-                <!-- Роль -->
-                <div class="form-floating">
-                    <select required class="form-select" id="api-role" name="role">
-                        <option value="Любая">Любая</option>
-                        <option class="dependent" value="Оператор">Оператор</option>
-                        <option class="dependent" value="Менеджер">Менеджер</option>
-                        <option class="dependent" value="Контролёр">Контролёр</option>
-                        <option class="dependent" value="Оператор ГЛ">Оператор ГЛ</option>
-                        <option class="dependent" value="Оператор Поликлиники">Оператор Поликлиники</option>
-                        <option class="dependent" value="Менеджер ГЛ">Менеджер ГЛ</option>
-                        <option class="dependent" value="Регистратор">Регистратор</option>
-                        <option class="dependent" value="Доктор">Доктор</option>
-                        <option class="dependent" value="Администратор">Администратор</option>
-                        <option class="dependent" value="Суперадмин">Суперадмин</option>
-                    </select>
-                    <label for="api-role">Роль</label>
-                </div>
-            </div>
-
-            <div class="tab" data-name="Запрос">
-                <!-- URL запроса -->
-                <div class="input-group">
-                    <select required class="form-select" id="method" name="method" style="max-width: 100px">
-                        <option value="GET" selected>GET</option>
-                        <option value="POST">POST</option>
-                        <option value="PUT">PUT</option>
-                        <option value="DELETE">DELETE</option>
-                    </select>
-                    <input required type="text" class="form-control" id="request-url" name="urlRequest" placeholder="URL запроса">
-<!--                    <label for="request-url">URL запроса</label>-->
-                </div>
-                <!-- Статус запроса -->
-                <div class="form-floating">
-                    <input required type="number" class="form-control" id="request-status" name="request-status" placeholder="Статус запроса">
-                    <label for="request-status">Статус запроса</label>
-                </div>
-                <!-- Время запроса -->
-                <div class="form-floating">
-                    <input type="text" class="form-control" id="request-time" name="request-time" placeholder="Время запроса">
-                    <label for="request-time">Время запроса</label>
-                </div>
-            </div>
-            <div class="tab" data-name="Тело">
-                <!-- Тело запроса -->
-                <div class="form-floating">
-                    <textarea type="text" class="form-control" name="bodyRequest" placeholder="Тело запроса" id="bodyRequest"></textarea>
-                    <label for="bodyRequest">Тело запроса</label>
-                </div>
-                <label class="hint"><kbd>CTRL</kbd> + <kbd>N</kbd>  - код; <kbd>CTRL</kbd> + <kbd>B</kbd> - жирный текст; <kbd>CTRL</kbd> + <kbd>I</kbd> - курсив</label>
-                <!-- Тело ответа -->
-                <div class="form-floating">
-                    <textarea required type="text" class="form-control" name="bodyResponse" placeholder="Тело ответа" id="bodyResponse"></textarea>
-                    <label for="bodyResponse">Тело ответа</label>
-                </div>
-                <label class="hint"><kbd>CTRL</kbd> + <kbd>N</kbd>  - код; <kbd>CTRL</kbd> + <kbd>B</kbd> - жирный текст; <kbd>CTRL</kbd> + <kbd>I</kbd> - курсив</label>
-            </div>
-            <div class="tab" data-name="Логи">
-                <!-- Время в логах -->
-                <div class="form-floating">
-                    <input type="text" class="form-control" id="timelog" name="timelog" placeholder="Время в логах">
-                    <label for="timelog">Время в логах</label>
-                </div>
-                <!-- Примечание -->
-                <div class="form-floating">
-                    <textarea type="text" class="form-control" name="note" placeholder="Примечание (необязательное поле)" id="note"></textarea>
-                    <label for="note">Примечание (необязательное поле)</label>
-                </div>
-                <label class="hint"><kbd>CTRL</kbd> + <kbd>N</kbd>  - код; <kbd>CTRL</kbd> + <kbd>B</kbd> - жирный текст; <kbd>CTRL</kbd> + <kbd>I</kbd> - курсив</label>
-            </div>
             <div class="status"></div>
             <div class="controller">
                 <button name="prev" type="button" class="btn">Назад</button>
