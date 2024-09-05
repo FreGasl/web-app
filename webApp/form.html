@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Создание тикета</title>
+    <link rel="stylesheet" href="./form.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body class="unselectable">
+<header>
+    <div id="settings" class="button hover-button">
+        <a href="#"><i class="fa fa-cogs"></i></a>
+    </div>
+</header>
+<div class="toasts">
+    <div role="alert" class="fade alert alert-success alert-dismissible show hidden">
+        <button type="button" class="btn-close" aria-label="Close alert"></button>
+        <div class="d-flex">
+            <img alt="noti-icon" src="https://brand.workingsolutions.com/components/images/success.svg" width="28" class="me-4">
+            <div>
+                <div class="alert-heading h4">Скопировано</div>
+                <p></p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row py-5">
+    <div class="col-md-5 mx-auto bg-dark p-5">
+        <h2 class="text-light">Создание тикета <span class="select-form">E2E</span> / <span class="select-form non-select">API</span></h2>
+        <form action="/" class="step-form e2e-form" id="contact-info">
+            <div class="steps"></div>
+            <div class="tab" data-name="Общее">
+                <!-- Проект -->
+                <div class="form-floating">
+                    <select required class="form-select" id="floatingApp" name="app">
+                        <option value="CRM">CRM</option>
+                        <option value="МУК">МУК</option>
+                        <option value="MED">MED</option>
+                        <option value="VM">VM</option>
+                        <option value="LHU">LHU</option>
+                    </select>
+                    <label for="floatingApp">Проект</label>
+                </div>
+                <!-- Стенд -->
+                <div class="form-floating">
+                    <select required class="form-select" id="floatingStand" name="stand">
+                        <option value="Тестовый">Тестовый</option>
+                        <option value="Облако">Облако</option>
+                        <option value="Прод">Прод</option>
+                    </select>
+                    <label for="floatingStand">Стенд</label>
+                </div>
+                <!-- URL -->
+                <div class="form-floating">
+                    <input required type="url" class="form-control" id="floatingURL" name="url" placeholder="URL">
+                    <label for="floatingURL">URL</label>
+                </div>
+                <!-- Роль -->
+                <div class="form-floating">
+                    <select required class="form-select" id="floatingRole" name="role">
+                        <option value="Любая">Любая</option>
+                        <option class="dependent" value="Оператор">Оператор</option>
+                        <option class="dependent" value="Менеджер">Менеджер</option>
+                        <option class="dependent" value="Контролёр">Контролёр</option>
+                        <option class="dependent" value="Оператор ГЛ">Оператор ГЛ</option>
+                        <option class="dependent" value="Оператор Поликлиники">Оператор Поликлиники</option>
+                        <option class="dependent" value="Менеджер ГЛ">Менеджер ГЛ</option>
+                        <option class="dependent" value="Регистратор">Регистратор</option>
+                        <option class="dependent" value="Доктор">Доктор</option>
+                        <option class="dependent" value="Администратор">Администратор</option>
+                        <option class="dependent" value="Суперадмин">Суперадмин</option>
+                    </select>
+                    <label for="floatingRole">Роль</label>
+                </div>
+                <!-- Браузер -->
+                <div class="form-floating">
+                    <input required type="text" class="form-control" id="floatingInput" name="browser" placeholder="Браузер">
+                    <label for="floatingInput">Браузер</label>
+                </div>
+                <!-- Устройство -->
+                <div class="form-floating">
+                    <input required type="text" class="form-control" id="floatingDevice" name="device" placeholder="Устройство">
+                    <label for="floatingDevice">Устройство</label>
+                </div>
+            </div>
+
+            <div class="tab" data-name="Сценарий">
+                <!-- Описание -->
+                <div class="form-floating">
+                    <textarea required type="text" class="form-control" name="description" placeholder="Описание"
+                              id="floatingDescription"></textarea>
+                    <label for="floatingDescription">Описание</label>
+                </div>
+                <label class="hint"><kbd>CTRL</kbd> + <kbd>N</kbd>  - код; <kbd>CTRL</kbd> + <kbd>B</kbd> - жирный текст; <kbd>CTRL</kbd> + <kbd>I</kbd> - курсив</label>
+                <!-- Шаги воспроизведения -->
+                <div class="form-floating">
+                    <textarea required type="text" class="form-control" name="stepstiket" placeholder="Шаги воспроизведения" id="floatingStepstiket" onfocusin="if (this.value === '') this.value = '1. '"></textarea>
+                    <label for="floatingStepstiket">Шаги воспроизведения</label>
+                </div>
+                <label class="hint"><kbd>CTRL</kbd> + <kbd>N</kbd>  - код; <kbd>CTRL</kbd> + <kbd>B</kbd> - жирный текст; <kbd>CTRL</kbd> + <kbd>I</kbd> - курсив</label>
+                <!-- Шаги воспроизведения №2 -->
+                <div class="form-floating">
+                    <textarea hidden type="text" class="form-control" name="stepstiket-2" placeholder="Шаги воспроизведения №2" id="floatingStepstiket-2" onfocusin="if (this.value === '') this.value = '1. '"></textarea>
+                    <label hidden for="floatingStepstiket-2">Шаги воспроизведения №2</label>
+                </div>
+                <label class="hint" hidden><kbd>CTRL</kbd> + <kbd>N</kbd>  - код; <kbd>CTRL</kbd> + <kbd>B</kbd> - жирный текст; <kbd>CTRL</kbd> + <kbd>I</kbd> - курсив</label>
+                <button name="add_stepstiket" type="button" class="add_stepstiket">+ Добавить вторые шаги воспроизведения</button>
+            </div>
+
+            <div class="tab" data-name="Результаты">
+                <!-- Актуальный результат -->
+                <div class="form-floating">
+                    <textarea required type="text" class="form-control" name="actualres" placeholder="Актуальный результат" id="floatingActualres"></textarea>
+                    <label for="floatingActualres">Актуальный результат</label>
+                </div>
+                <label class="hint"><kbd>CTRL</kbd> + <kbd>N</kbd>  - код; <kbd>CTRL</kbd> + <kbd>B</kbd> - жирный текст; <kbd>CTRL</kbd> + <kbd>I</kbd> - курсив</label>
+                <!-- Ожидаемый результат -->
+                <div class="form-floating">
+                    <textarea required type="text" class="form-control" name="expectres" placeholder="Ожидаемый результат" id="floatingExpectres"></textarea>
+                    <label for="floatingExpectres">Ожидаемый результат</label>
+                </div>
+                <label class="hint"><kbd>CTRL</kbd> + <kbd>N</kbd>  - код; <kbd>CTRL</kbd> + <kbd>B</kbd> - жирный текст; <kbd>CTRL</kbd> + <kbd>I</kbd> - курсив</label>
+                <!-- Примечание -->
+                <div class="form-floating">
+                    <textarea type="text" class="form-control" name="note" placeholder="Примечание (необязательное поле)" id="floatingNote"></textarea>
+                    <label for="floatingNote">Примечание (необязательное поле)</label>
+                </div>
+                <label class="hint"><kbd>CTRL</kbd> + <kbd>N</kbd>  - код; <kbd>CTRL</kbd> + <kbd>B</kbd> - жирный текст; <kbd>CTRL</kbd> + <kbd>I</kbd> - курсив</label>
+            </div>
+
+            <div class="status"></div>
+            <div class="controller">
+                <button name="prev" type="button" class="btn">Назад</button>
+                <button name="refresh" type="button" class="btn">Сбросить</button>
+                <button name="next" type="button" class="btn">Продолжить</button>
+            </div>
+            <div class="controller new-btn">
+                <button name="save" type="button" class="btn">Сохранить значения</button>
+                <button name="run-tests" type="button" class="btn">Открыть запуск тестов</button>
+            </div>
+        </form>
+        <form action="/" class="step-form api-form hidden" id="api-info">
+            <div class="steps"></div>
+            <div class="tab" data-name="Общее">
+                <!-- Проект -->
+                <div class="form-floating">
+                    <select required class="form-select" id="api-project" name="app">
+                        <option value="CRM">CRM</option>
+                        <option value="МУК">МУК</option>
+                        <option value="MED">MED</option>
+                        <option value="VM">VM</option>
+                        <option value="LHU">LHU</option>
+                    </select>
+                    <label for="api-project">Проект</label>
+                </div>
+                <!-- Стенд -->
+                <div class="form-floating">
+                    <select required class="form-select" id="api-stand" name="stand">
+                        <option value="Тестовый">Тестовый</option>
+                        <option value="Облако">Облако</option>
+                        <option value="Прод">Прод</option>
+                    </select>
+                    <label for="api-stand">Стенд</label>
+                </div>
+                <!-- Роль -->
+                <div class="form-floating">
+                    <select required class="form-select" id="api-role" name="role">
+                        <option value="Любая">Любая</option>
+                        <option class="dependent" value="Оператор">Оператор</option>
+                        <option class="dependent" value="Менеджер">Менеджер</option>
+                        <option class="dependent" value="Контролёр">Контролёр</option>
+                        <option class="dependent" value="Оператор ГЛ">Оператор ГЛ</option>
+                        <option class="dependent" value="Оператор Поликлиники">Оператор Поликлиники</option>
+                        <option class="dependent" value="Менеджер ГЛ">Менеджер ГЛ</option>
+                        <option class="dependent" value="Регистратор">Регистратор</option>
+                        <option class="dependent" value="Доктор">Доктор</option>
+                        <option class="dependent" value="Администратор">Администратор</option>
+                        <option class="dependent" value="Суперадмин">Суперадмин</option>
+                    </select>
+                    <label for="api-role">Роль</label>
+                </div>
+            </div>
+
+            <div class="tab" data-name="Запрос">
+                <!-- URL запроса -->
+                <div class="input-group">
+                    <select required class="form-select" id="method" name="method" style="max-width: 100px">
+                        <option value="GET" selected>GET</option>
+                        <option value="POST">POST</option>
+                        <option value="PUT">PUT</option>
+                        <option value="DELETE">DELETE</option>
+                    </select>
+                    <input required type="text" class="form-control" id="request-url" name="urlRequest" placeholder="URL запроса">
+<!--                    <label for="request-url">URL запроса</label>-->
+                </div>
+                <!-- Статус запроса -->
+                <div class="form-floating">
+                    <input required type="number" class="form-control" id="request-status" name="request-status" placeholder="Статус запроса">
+                    <label for="request-status">Статус запроса</label>
+                </div>
+                <!-- Время запроса -->
+                <div class="form-floating">
+                    <input type="text" class="form-control" id="request-time" name="request-time" placeholder="Время запроса">
+                    <label for="request-time">Время запроса</label>
+                </div>
+            </div>
+            <div class="tab" data-name="Тело">
+                <!-- Тело запроса -->
+                <div class="form-floating">
+                    <textarea type="text" class="form-control" name="bodyRequest" placeholder="Тело запроса" id="bodyRequest"></textarea>
+                    <label for="bodyRequest">Тело запроса</label>
+                </div>
+                <label class="hint"><kbd>CTRL</kbd> + <kbd>N</kbd>  - код; <kbd>CTRL</kbd> + <kbd>B</kbd> - жирный текст; <kbd>CTRL</kbd> + <kbd>I</kbd> - курсив</label>
+                <!-- Тело ответа -->
+                <div class="form-floating">
+                    <textarea required type="text" class="form-control" name="bodyResponse" placeholder="Тело ответа" id="bodyResponse"></textarea>
+                    <label for="bodyResponse">Тело ответа</label>
+                </div>
+                <label class="hint"><kbd>CTRL</kbd> + <kbd>N</kbd>  - код; <kbd>CTRL</kbd> + <kbd>B</kbd> - жирный текст; <kbd>CTRL</kbd> + <kbd>I</kbd> - курсив</label>
+            </div>
+            <div class="tab" data-name="Логи">
+                <!-- Время в логах -->
+                <div class="form-floating">
+                    <input type="text" class="form-control" id="timelog" name="timelog" placeholder="Время в логах">
+                    <label for="timelog">Время в логах</label>
+                </div>
+                <!-- Примечание -->
+                <div class="form-floating">
+                    <textarea type="text" class="form-control" name="note" placeholder="Примечание (необязательное поле)" id="note"></textarea>
+                    <label for="note">Примечание (необязательное поле)</label>
+                </div>
+                <label class="hint"><kbd>CTRL</kbd> + <kbd>N</kbd>  - код; <kbd>CTRL</kbd> + <kbd>B</kbd> - жирный текст; <kbd>CTRL</kbd> + <kbd>I</kbd> - курсив</label>
+            </div>
+            <div class="status"></div>
+            <div class="controller">
+                <button name="prev" type="button" class="btn">Назад</button>
+                <button name="refresh" type="button" class="btn">Сбросить</button>
+                <button name="next" type="button" class="btn">Продолжить</button>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+<script src="preload-form.js"></script>
+<script type="module">
+    import { Form } from './src/form.js';
+    const alert = document.querySelector('.alert');
+    document.querySelectorAll('[name="refresh"]').forEach(el => {
+        el.addEventListener('click', function () {
+            window.location.reload();
+        });
+    });
+    document.querySelector('[aria-label="Close alert"]').addEventListener('click', function () {
+        alert.classList.add('hidden');
+    });
+
+    const validateJSON = function (text) {
+        try {
+            return JSON.stringify(JSON.parse(text), undefined, 2)
+        } catch (e) {
+            return text
+        }
+    }
+
+    const contactInfoFormCallback = (form, val) => {
+        return new Promise( async (resolve) => {
+            const res = `|||
+|:-------|:-------|
+|**Приложение**|${val['app']}|
+|**Стенд**|[${val['stand']}]${(val['url'] === '') ? '' : '('+val['url']+')'}|
+|**Роль пользователя**|${val['role']}|
+|**Браузер**|${val['browser']}|
+|**Устройство**|${val['device']}|
+
+**Описание:** ${val['description']}\n
+**Шаги воспроизведения:**\n${val['stepstiket']}
+${(val['stepstiket-2'].trim() !== '') ? `\n**Шаги воспроизведения №2:**\n${val['stepstiket-2']}\n` : ''}
+**Актуальный результат:** ${val['actualres']}
+**Ожидаемый результат:**  ${val['expectres']}
+${val['note'] === '' ? '' : '\n' +
+                '---\n' +
+                '\n' +
+                `**Примечание:** ${val['note']}`}`;
+            await navigator.clipboard.writeText(res);
+            const rndText = ['Я в тебя верю!', 'Тикет выглядит прерасно!', 'Всегда рад помочь!', 'Важная задача будет красиво оформлена!', 'Теперь бегом вставляй в YouTrack!'];
+            const rand = Math.floor(Math.random() * rndText.length);
+            alert.querySelector('p').innerText = rndText[rand];
+            alert.querySelector('.alert-heading').innerText = 'Скопировано';
+            alert.classList.remove('hidden');
+            setTimeout(() => alert.classList.add('hidden'), 2000);
+            resolve(true);
+        });
+    }
+
+    const apiInfoFormCallback = (form, val) => {
+        return new Promise( async (resolve) => {
+            const res = `|||
+|:-------|:-------|
+|**Приложение**|${val['app']}|
+|**Стенд**|[${val['stand']}]${(val['url'] === '') ? '' : '('+val['url']+')'}|
+|**Роль пользователя**|${val['role']}|
+
+**URL запроса:** ${'`'}${val['method']} ${val['urlRequest']}${'`'}\n
+**Статус:** ${val['request-status']}\n
+${(val['request-time'].trim() !== '') ? `**Время запроса:** ${val['request-time']}\n`: ''}
+${(val['bodyRequest'].trim() !== '') ? '**Тело запроса:**\n```\n' + validateJSON(val['bodyRequest']) + '\n```\n': ''}
+${(val['bodyResponse'].trim() !== '') ? '**Тело ответа:**\n```\n' + validateJSON(val['bodyResponse']) + '\n```\n': ''}
+${(val['timelog'].trim() !== '') ? `**Время в логах:** ${val['request-status']}\n`: ''}
+${val['note'] === '' ? '' : '\n' +
+                '---\n' +
+                '\n' +
+                `**Примечание:** ${val['note']}`}`;
+            await navigator.clipboard.writeText(res);
+            const rndText = ['Я в тебя верю!', 'Тикет выглядит прерасно!', 'Всегда рад помочь!', 'Важная задача будет красиво оформлена!', 'Теперь бегом вставляй в YouTrack!'];
+            const rand = Math.floor(Math.random() * rndText.length);
+            alert.querySelector('p').innerText = rndText[rand];
+            alert.querySelector('.alert-heading').innerText = 'Скопировано';
+            alert.classList.remove('hidden');
+            setTimeout(() => alert.classList.add('hidden'), 2000);
+            resolve(true);
+        });
+    }
+
+    const contactInfoChangeTabCallback = () => {
+        return new Promise(async (resolve) => {
+            resolve(true);
+        });
+    }
+
+    const contactInfoForm = document.querySelector('#contact-info');
+    new Form(contactInfoForm, contactInfoFormCallback, contactInfoChangeTabCallback);
+    const apiInfoForm = document.querySelector('#api-info');
+    new Form(apiInfoForm, apiInfoFormCallback, contactInfoChangeTabCallback);
+
+</script>
+</html>
